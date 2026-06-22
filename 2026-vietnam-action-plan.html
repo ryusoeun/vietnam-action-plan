@@ -1,0 +1,1910 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2026 Vietnam Public Service Training Program | Team Action Plan Standard</title>
+    <style>
+:root {
+  color-scheme: light;
+  --ink: #20242b;
+  --muted: #626b77;
+  --line: #d9dee5;
+  --panel: #ffffff;
+  --paper: #f7f8fa;
+  --teal: #2f6f6a;
+  --teal-dark: #174743;
+  --coral: #be4b4b;
+  --amber: #c47b16;
+  --green: #2f7d4f;
+  --blue: #406fa8;
+  --shadow: 0 12px 28px rgba(32, 36, 43, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    Arial,
+    sans-serif;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 88px;
+  padding: 16px clamp(18px, 4vw, 48px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.topbar h1 {
+  margin: 2px 0 0;
+  font-size: clamp(1.3rem, 2.1vw, 2rem);
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--teal-dark);
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  max-width: 760px;
+}
+
+.primary-button,
+.ghost-button {
+  min-height: 40px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 9px 14px;
+  font-weight: 700;
+}
+
+.primary-button {
+  background: var(--teal);
+  color: #fff;
+}
+
+.ghost-button {
+  background: #fff;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.ghost-button.is-active {
+  background: #edf4f3;
+  color: var(--teal-dark);
+  border-color: var(--teal);
+}
+
+.danger-button {
+  color: #8b2f2f;
+}
+
+.file-button {
+  display: inline-grid;
+  place-items: center;
+  min-height: 40px;
+}
+
+.file-button input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ghost-button.small {
+  min-height: 34px;
+  padding: 6px 11px;
+  font-size: 0.86rem;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 36px);
+  width: min(1520px, calc(100% - 32px));
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 24px clamp(8px, 2vw, 32px) 64px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 112px;
+  align-self: start;
+  display: grid;
+  gap: 16px;
+}
+
+.nav-list,
+.side-card,
+.copy-panel,
+.tabs,
+.source-note {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.nav-list {
+  display: grid;
+  padding: 8px;
+}
+
+.nav-list a {
+  padding: 9px 10px;
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background: #edf4f3;
+  color: var(--teal-dark);
+  outline: none;
+}
+
+.side-card {
+  padding: 16px;
+}
+
+.side-card h2 {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+}
+
+.side-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.checklist,
+.handoff-card {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  accent-color: var(--teal);
+}
+
+main {
+  min-width: 0;
+  display: grid;
+  gap: 28px;
+}
+
+main > *,
+.app-shell > *,
+.principle-grid > *,
+.question-grid > *,
+.handoff-grid > *,
+.comparison-grid > *,
+.tool-grid > *,
+.deck-grid > * {
+  min-width: 0;
+}
+
+.section-band {
+  scroll-margin-top: 112px;
+  min-width: 0;
+  padding: clamp(22px, 4vw, 38px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.section-heading {
+  max-width: 900px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 5px 0 8px;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+.section-heading p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+}
+
+.logic-figure {
+  margin: 0 0 22px;
+  padding: 18px;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.logic-figure figcaption {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.logic-figure svg {
+  min-width: 820px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.svg-title {
+  fill: var(--ink);
+  font: 700 24px "Segoe UI", Arial, sans-serif;
+}
+
+.svg-note {
+  fill: var(--muted);
+  font: 17px "Segoe UI", Arial, sans-serif;
+}
+
+.principle-grid,
+.question-grid,
+.handoff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.principle-card,
+.question-grid article,
+.handoff-card,
+.rubric-list article,
+.deck-grid article,
+.tool-grid article,
+.do-card,
+.stage-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.principle-card,
+.question-grid article,
+.handoff-card,
+.do-card {
+  padding: 18px;
+}
+
+.principle-card h3,
+.question-grid h3,
+.handoff-card h3,
+.do-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.principle-card p,
+.do-card p,
+.do-card span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.do-card {
+  border-top: 4px solid var(--coral);
+}
+
+.do-card.strong {
+  border-top-color: var(--green);
+}
+
+.do-card p {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.stage-list {
+  display: grid;
+  gap: 12px;
+}
+
+.schedule-brief {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.schedule-brief article {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  border-top: 4px solid var(--teal);
+}
+
+.schedule-brief article + article {
+  border-top-color: var(--amber);
+}
+
+.schedule-brief h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.schedule-brief p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.stage-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px;
+}
+
+.stage-index {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  background: #edf4f3;
+  color: var(--teal-dark);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.stage-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.06rem;
+}
+
+.stage-card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.stage-card ul,
+.question-grid ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.stage-card li + li,
+.question-grid li + li {
+  margin-top: 4px;
+}
+
+.copy-panel {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.copy-panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.copy-panel-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+pre {
+  margin: 0;
+  max-height: 520px;
+  overflow: auto;
+  padding: 18px;
+  background: #252a31;
+  color: #f7f8fa;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 13px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  background: #edf4f3;
+  color: var(--teal-dark);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+td {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.compact td {
+  height: 58px;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.deck-grid article {
+  min-height: 150px;
+  padding: 16px;
+  border-top: 4px solid var(--blue);
+}
+
+.deck-grid article:nth-child(3n + 2) {
+  border-top-color: var(--amber);
+}
+
+.deck-grid article:nth-child(3n) {
+  border-top-color: var(--teal);
+}
+
+.deck-grid span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 28px;
+  margin-bottom: 12px;
+  color: #fff;
+  background: var(--ink);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.deck-grid h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.deck-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.tabs {
+  overflow: hidden;
+}
+
+.tab-list {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.tab-list button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 8px 13px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 760;
+}
+
+.tab-list button[aria-selected="true"] {
+  background: var(--teal);
+  color: #fff;
+}
+
+.tab-panel {
+  display: none;
+  padding: 18px;
+}
+
+.tab-panel.is-active {
+  display: block;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tool-grid article {
+  padding: 16px;
+}
+
+.tool-grid h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.tool-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.question-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.rubric-list {
+  display: grid;
+  gap: 12px;
+}
+
+.rubric-list article {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 180px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+}
+
+.rubric-list h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.rubric-list p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.score {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 52px;
+  background: #f7efe3;
+  color: #744406;
+  border-radius: 8px;
+  font-weight: 820;
+}
+
+.handoff-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.source-note {
+  margin-top: 16px;
+  padding: 0;
+  box-shadow: none;
+}
+
+.source-note summary {
+  padding: 14px 16px;
+  color: var(--teal-dark);
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.source-note p {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: var(--muted);
+}
+
+.source-caveat {
+  margin-top: 14px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--amber);
+  border-radius: 8px;
+}
+
+.source-caveat h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.source-caveat p {
+  margin: 0;
+  color: var(--muted);
+}
+
+body.edit-mode [data-live-edit="true"] {
+  outline: 1px dashed rgba(47, 111, 106, 0.42);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+body.edit-mode [data-live-edit="true"]:focus {
+  outline: 2px solid var(--teal);
+  background: #f7fbfa;
+}
+
+body.edit-mode .section-band {
+  border-color: rgba(47, 111, 106, 0.45);
+}
+
+body.edit-mode .topbar::after {
+  content: "Edit mode on - changes save in this browser";
+  position: fixed;
+  right: 18px;
+  top: 96px;
+  z-index: 60;
+  padding: 8px 11px;
+  background: var(--teal-dark);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 760;
+  box-shadow: var(--shadow);
+}
+
+.toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 50;
+  max-width: min(360px, calc(100vw - 36px));
+  padding: 12px 14px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1100px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .principle-grid,
+  .tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .deck-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    position: static;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .top-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .top-actions button {
+    flex: 1 1 140px;
+  }
+
+  .app-shell {
+    width: min(100%, calc(100% - 16px));
+    padding-inline: 8px;
+  }
+
+  .section-band {
+    padding: 18px;
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .principle-grid,
+  .question-grid,
+  .handoff-grid,
+  .comparison-grid,
+  .schedule-brief,
+  .tool-grid,
+  .deck-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-card {
+    grid-template-columns: 1fr;
+  }
+
+  .rubric-list article {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .topbar,
+  .sidebar,
+  .toast,
+  .tab-list,
+  .copy-panel-header button {
+    display: none !important;
+  }
+
+  .app-shell {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .section-band,
+  .nav-list,
+  .side-card,
+  .copy-panel,
+  .tabs,
+  .source-note {
+    box-shadow: none;
+  }
+
+  .section-band {
+    break-inside: avoid;
+    border: 0;
+    padding: 20px 0;
+  }
+
+  .tab-panel {
+    display: block !important;
+    padding: 0 0 14px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">2026 Vietnam Public Service Training Program</p>
+        <h1>Team Action Plan Standard Kit</h1>
+      </div>
+      <div class="top-actions">
+        <button class="ghost-button" type="button" data-edit-toggle>Edit Mode</button>
+        <button class="ghost-button" type="button" data-save-edits>Save</button>
+        <button class="ghost-button" type="button" data-export-edits>Export JSON</button>
+        <button class="ghost-button" type="button" data-export-html>Export HTML</button>
+        <label class="ghost-button file-button">
+          Import JSON
+          <input type="file" accept="application/json" data-import-edits />
+        </label>
+        <button class="ghost-button danger-button" type="button" data-reset-edits>Reset</button>
+        <button class="ghost-button" type="button" data-print>Print</button>
+        <button class="primary-button" type="button" data-expand>Expand All</button>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Page navigation">
+        <nav class="nav-list">
+          <a href="#logic">Core Logic</a>
+          <a href="#process">Process</a>
+          <a href="#canvas">Team Canvas</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#deck">Deck Standard</a>
+          <a href="#tools">Tools</a>
+          <a href="#review">Review</a>
+          <a href="#rubric">Rubric</a>
+          <a href="#source-map">Source Map</a>
+          <a href="#handoff">Handoff</a>
+        </nav>
+        <section class="side-card" aria-labelledby="deliverable-title">
+          <h2 id="deliverable-title">Final Deliverable</h2>
+          <p>One team presentation with a practical, evidence-based action plan that can be briefed to a ministry, agency, or local government decision-maker.</p>
+        </section>
+        <section class="side-card checklist" aria-labelledby="quick-check-title">
+          <h2 id="quick-check-title">Quality Gate</h2>
+          <label><input type="checkbox" /> Core problem is specific and owned by a target group.</label>
+          <label><input type="checkbox" /> Evidence changes the decision, not only decorates the slide.</label>
+          <label><input type="checkbox" /> At least three policy options are compared.</label>
+          <label><input type="checkbox" /> Implementation has owner, budget, risks, KPIs, and timeline.</label>
+          <label><input type="checkbox" /> Korea lesson is adapted to Vietnam, not copied.</label>
+        </section>
+      </aside>
+
+      <main>
+        <section id="logic" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Operating Logic</p>
+            <h2>팀 발표까지 이어지는 하나의 표준 레일</h2>
+            <p>
+              말레이시아 자료의 개인 보고서 요소는 이번 프로그램에서 팀 토론 재료로 전환한다. 각 개인의 현장 경험은
+              문제 후보, 근거, 이해관계자, 실행 리스크를 채우는 입력값이고, 최종 산출물은 팀 액션플랜 발표 하나로 통합한다.
+            </p>
+          </div>
+
+          <figure class="logic-figure" aria-labelledby="logic-caption">
+            <figcaption id="logic-caption">From issue discovery to final presentation</figcaption>
+            <svg viewBox="0 0 1080 210" role="img" aria-label="Action plan logic flow">
+              <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#2f6f6a"></path>
+                </marker>
+              </defs>
+              <g fill="none" stroke="#2f6f6a" stroke-width="4" marker-end="url(#arrow)">
+                <path d="M155 105 H260"></path>
+                <path d="M395 105 H500"></path>
+                <path d="M635 105 H740"></path>
+                <path d="M875 105 H980"></path>
+              </g>
+              <g>
+                <rect x="20" y="42" width="135" height="126" rx="8" fill="#fff" stroke="#d9dee5"></rect>
+                <text x="88" y="85" text-anchor="middle" class="svg-title">Problem</text>
+                <text x="88" y="116" text-anchor="middle" class="svg-note">who, where,</text>
+                <text x="88" y="138" text-anchor="middle" class="svg-note">how serious</text>
+              </g>
+              <g>
+                <rect x="260" y="42" width="135" height="126" rx="8" fill="#fff" stroke="#d9dee5"></rect>
+                <text x="328" y="85" text-anchor="middle" class="svg-title">Evidence</text>
+                <text x="328" y="116" text-anchor="middle" class="svg-note">data, causes,</text>
+                <text x="328" y="138" text-anchor="middle" class="svg-note">stakeholders</text>
+              </g>
+              <g>
+                <rect x="500" y="42" width="135" height="126" rx="8" fill="#fff" stroke="#d9dee5"></rect>
+                <text x="568" y="85" text-anchor="middle" class="svg-title">Options</text>
+                <text x="568" y="116" text-anchor="middle" class="svg-note">compare by</text>
+                <text x="568" y="138" text-anchor="middle" class="svg-note">criteria</text>
+              </g>
+              <g>
+                <rect x="740" y="42" width="135" height="126" rx="8" fill="#fff" stroke="#d9dee5"></rect>
+                <text x="808" y="85" text-anchor="middle" class="svg-title">Action</text>
+                <text x="808" y="116" text-anchor="middle" class="svg-note">owners, steps,</text>
+                <text x="808" y="138" text-anchor="middle" class="svg-note">resources</text>
+              </g>
+              <g>
+                <rect x="980" y="42" width="80" height="126" rx="8" fill="#fff" stroke="#d9dee5"></rect>
+                <text x="1020" y="85" text-anchor="middle" class="svg-title">Story</text>
+                <text x="1020" y="116" text-anchor="middle" class="svg-note">15 min</text>
+                <text x="1020" y="138" text-anchor="middle" class="svg-note">deck</text>
+              </g>
+            </svg>
+          </figure>
+
+          <div class="principle-grid">
+            <article class="principle-card">
+              <h3>1. Problem before solution</h3>
+              <p>“시스템을 만들자”가 문제 정의가 되지 않도록 한다. 누구의 어떤 부정적 상태가 얼마나 심각한지를 먼저 쓴다.</p>
+            </article>
+            <article class="principle-card">
+              <h3>2. Evidence before preference</h3>
+              <p>팀원의 경험, 정부 통계, 현행 법령, 현장 인터뷰, 한국 사례를 근거로 묶어 의사결정자를 설득한다.</p>
+            </article>
+            <article class="principle-card">
+              <h3>3. Options before decision</h3>
+              <p>선호안을 바로 발표하지 않는다. 최소 3개 대안을 효과성, 효율성, 형평성, 법적·행정적 실행가능성으로 비교한다.</p>
+            </article>
+            <article class="principle-card">
+              <h3>4. Implementation before aspiration</h3>
+              <p>목표가 좋아도 실행 주체, 예산, 데이터, 인력, 일정, 리스크, KPI가 없으면 액션플랜이 아니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="process" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Workshop Process</p>
+            <h2>진행자용 7단계 프로세스</h2>
+            <p>각 단계는 입력값, 팀 활동, 검토 체크포인트, 산출물로 끝나야 한다. 산출물이 없으면 다음 단계로 넘어가지 않는다.</p>
+          </div>
+
+          <div class="stage-list">
+            <article class="stage-card">
+              <div class="stage-index">00</div>
+              <div>
+                <h3>Pre-work: topic inventory</h3>
+                <p>참가자별 소속기관 문제를 1페이지로 받아 팀 문제 후보군을 만든다.</p>
+                <ul>
+                  <li>Input: participant ministry, mandate, policy issue, available data, desired change</li>
+                  <li>Output: team issue bank and draft team composition</li>
+                </ul>
+              </div>
+            </article>
+            <article class="stage-card">
+              <div class="stage-index">01</div>
+              <div>
+                <h3>Team formation and topic selection</h3>
+                <p>팀은 같은 부처보다 문제의 연결성, 데이터 접근성, 실행 가능성을 기준으로 구성한다.</p>
+                <ul>
+                  <li>Decision rule: urgent, evidence-visible, politically discussable, implementable in 1-3 years</li>
+                  <li>Output: one team topic and one decision-maker audience</li>
+                </ul>
+              </div>
+            </article>
+            <article class="stage-card">
+              <div class="stage-index">02</div>
+              <div>
+                <h3>Problem framing and evidence</h3>
+                <p>5 Whys, problem tree, baseline data, stakeholder needs를 사용해 핵심 문제를 좁힌다.</p>
+                <ul>
+                  <li>Review question: “If this is the problem, what evidence would change a minister's mind?”</li>
+                  <li>Output: quantified problem statement and diagnostic hypotheses</li>
+                </ul>
+              </div>
+            </article>
+            <article class="stage-card">
+              <div class="stage-index">03</div>
+              <div>
+                <h3>External and internal diagnosis</h3>
+                <p>PESTLE은 외부 변화 압력, SWOT은 기관 역량과 제약, stakeholder map은 참여 전략을 만든다.</p>
+                <ul>
+                  <li>Common error: generic country description without implication for the action plan</li>
+                  <li>Output: drivers, constraints, stakeholder engagement strategy</li>
+                </ul>
+              </div>
+            </article>
+            <article class="stage-card">
+              <div class="stage-index">04</div>
+              <div>
+                <h3>Policy options and Korea lesson adaptation</h3>
+                <p>한국 사례는 정답이 아니라 설계 원리다. 베트남 맥락에서 채택, 조정, 보류할 요소를 나눈다.</p>
+                <ul>
+                  <li>Output: three options, scoring matrix, selected option with justification</li>
+                  <li>Red flag: “Korea did it, so Vietnam can do it” without adaptation logic</li>
+                </ul>
+              </div>
+            </article>
+            <article class="stage-card">
+              <div class="stage-index">05</div>
+              <div>
+                <h3>Implementation, risk, and performance management</h3>
+                <p>Logic model과 logframe으로 inputs, activities, outputs, outcomes, impact를 연결한다.</p>
+                <ul>
+                  <li>Output: owner, phases, budget, staffing, data, risk mitigation, KPI matrix</li>
+                  <li>Review question: “Which frontline officials must change their behavior?”</li>
+                </ul>
+              </div>
+            </article>
+            <article class="stage-card">
+              <div class="stage-index">06</div>
+              <div>
+                <h3>Storyline and final presentation</h3>
+                <p>15분 발표는 보고서 요약이 아니라 의사결정 브리핑이다. 문제, 선택, 실행, 기대효과가 한 줄로 이어져야 한다.</p>
+                <ul>
+                  <li>Output: 12-15 slide deck, speaking roles, anticipated Q&A</li>
+                  <li>Quality test: every slide answers “So what should government do?”</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="canvas" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Team Workbook</p>
+            <h2>팀 액션플랜 캔버스</h2>
+            <p>이 캔버스는 개인 보고서 항목을 팀 발표용으로 바꾼 것이다. 팀별 공유 문서에 그대로 복사해 채우면 된다.</p>
+          </div>
+
+          <div class="copy-panel">
+            <div class="copy-panel-header">
+              <h3>Copy-ready team canvas</h3>
+              <button type="button" class="ghost-button small" data-copy="#team-canvas">Copy</button>
+            </div>
+            <pre id="team-canvas"><code>TEAM ACTION PLAN CANVAS
+
+1. Team Topic
+- Policy area:
+- Implementing agency:
+- Decision-maker audience:
+- Target group affected:
+
+2. Problem Statement
+- Negative condition:
+- Who experiences it:
+- Where it occurs:
+- Baseline evidence:
+- Why it matters now:
+
+3. Diagnostic Hypotheses
+- Root cause 1:
+- Root cause 2:
+- Root cause 3:
+- Evidence still needed:
+
+4. Stakeholders
+- Manage closely:
+- Keep satisfied:
+- Keep informed:
+- Monitor:
+
+5. Policy Options
+- Option A:
+- Option B:
+- Option C:
+- Criteria and weights:
+- Preferred option:
+- Why not the other options:
+
+6. Korea Lesson Adaptation
+- Korean practice observed:
+- Transferable principle:
+- Vietnam adaptation:
+- Risks if copied directly:
+
+7. Implementation Plan
+- Phase 1 / quick wins:
+- Phase 2 / pilot:
+- Phase 3 / scale-up:
+- Lead agency and partners:
+- Required budget, staff, data, technology:
+
+8. Monitoring and Evaluation
+- Outputs:
+- Outcomes:
+- Impact contribution:
+- KPIs:
+- Verification sources:
+- Learning and policy adjustment mechanism:
+
+9. Risks and Mitigation
+- Political/legal risk:
+- Administrative capacity risk:
+- Data/technology risk:
+- Adoption/equity risk:
+- Budget/sustainability risk:
+
+10. Final Message
+- One-sentence action plan:
+- What decision is requested from leadership:
+- Expected public value:</code></pre>
+          </div>
+
+          <div class="comparison-grid">
+            <article class="do-card">
+              <h3>Weak problem statement</h3>
+              <p>“Vietnam needs a digital public service platform.”</p>
+              <span>Solution is hidden inside the problem.</span>
+            </article>
+            <article class="do-card strong">
+              <h3>Stronger problem statement</h3>
+              <p>“Rural elderly citizens face delayed benefit access because identity verification and service guidance are fragmented across local offices.”</p>
+              <span>Target group, negative condition, causal direction, and service context are visible.</span>
+            </article>
+          </div>
+        </section>
+
+        <section id="schedule" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Program Schedule</p>
+            <h2>베트남 실제 일정 기반 운영안</h2>
+            <p>
+              최신 스케줄 시트인 `0622 ver.` 기준으로, 액션플랜 세션은 별도 멘토링이 아니라 강의와 현장방문에서 얻은 내용을
+              팀 산출물로 변환하는 워크숍 흐름으로 설계한다.
+            </p>
+          </div>
+
+          <div class="schedule-brief">
+            <article>
+              <h3>Program theme</h3>
+              <p>Innovation; digital human resources training to serve the digital transformation of the economy and society.</p>
+            </article>
+            <article>
+              <h3>Vietnam action plan lenses</h3>
+              <p>AI and digital government, legal and institutional innovation, data governance and cybersecurity, BPR and citizen-centered service design, digital HRD and implementation leadership.</p>
+            </article>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date / Time</th>
+                  <th>Program Input</th>
+                  <th>Action Plan Work</th>
+                  <th>Team Output</th>
+                  <th>Facilitator / Review Check</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Before arrival</td>
+                  <td>Participant issue inventory</td>
+                  <td>Collect agency-level digital transformation problems from each participant.</td>
+                  <td>One-page issue note per participant</td>
+                  <td>Cluster issues by policy problem, not only by ministry.</td>
+                </tr>
+                <tr>
+                  <td>20 July / 16.00-17.30</td>
+                  <td>Action Plan Orientation after programme introduction and Lecture 1 on Korea's digital transformation.</td>
+                  <td>Introduce problem identification, group formation, and final presentation logic.</td>
+                  <td>Team roster, topic shortlist, decision-maker audience</td>
+                  <td>Reject topics that are too broad, solution-first, or not tied to public service delivery.</td>
+                </tr>
+                <tr>
+                  <td>21 July / 16.00-17.30</td>
+                  <td>Lectures on digital and AI transformation, disaster and safety management.</td>
+                  <td>Brainstorm and identify digital challenges in Vietnam.</td>
+                  <td>Problem statement, 5 Whys, initial evidence list</td>
+                  <td>Require a target group, baseline condition, and consequence of inaction.</td>
+                </tr>
+                <tr>
+                  <td>22 July / 16.00-17.30</td>
+                  <td>Lectures on civil complaint handling, AI applications, policy and institutional responses.</td>
+                  <td>Strategic adaptation of Korea lessons to Vietnam's institutional context.</td>
+                  <td>Stakeholder map, Korea lesson adaptation notes, draft option set</td>
+                  <td>Separate transferable principles from Korea-specific institutional conditions.</td>
+                </tr>
+                <tr>
+                  <td>23 July</td>
+                  <td>Songdo Smart City site visits and field trip wrap-up.</td>
+                  <td>Capture field lessons on smart city governance, ICT integration, and service operations.</td>
+                  <td>Field learning log: adopt, adapt, avoid</td>
+                  <td>Connect each lesson to the selected problem or discard it.</td>
+                </tr>
+                <tr>
+                  <td>24 July / 16.00-17.30</td>
+                  <td>Lectures on public HRD leadership and AI economy.</td>
+                  <td>Strategic framework and mid-term evaluation.</td>
+                  <td>Option scoring matrix, selected action plan, draft implementation phases</td>
+                  <td>Check criteria weights, political feasibility, administrative capacity, and digital HRD needs.</td>
+                </tr>
+                <tr>
+                  <td>27-29 July</td>
+                  <td>National Assembly, AI governance, KT IT Center, NIRS, and KONEPS sessions/site visits.</td>
+                  <td>Integrate legal feasibility, AI governance, cybersecurity, infrastructure resilience, and flagship service design into the action plan.</td>
+                  <td>Revised governance, technology, risk, and Korea adaptation slides</td>
+                  <td>Ensure visits are used as evidence for design choices, not as travel summaries.</td>
+                </tr>
+                <tr>
+                  <td>30 July / 16.00-17.30</td>
+                  <td>Microsoft AI and public-sector productivity lectures.</td>
+                  <td>Final review of implementation roadmap, KPIs, risks, and Q&A.</td>
+                  <td>Near-final 12-15 slide deck, speaker roles, anticipated questions</td>
+                  <td>Remove generic slides; sharpen the decision request and performance indicators.</td>
+                </tr>
+                <tr>
+                  <td>31 July / Morning</td>
+                  <td>Group Presentation and Farewell Party</td>
+                  <td>Team action plan presentation.</td>
+                  <td>Final deck, completed canvas, review feedback, rubric score</td>
+                  <td>Score using standard rubric and collect lessons for future cohorts.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="deck" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Presentation Standard</p>
+            <h2>15분 팀 발표 슬라이드 구조</h2>
+            <p>말레이시아 샘플들의 반복 구조를 팀 전용 최종 발표 형식으로 정리했다. 12-15장 안에서 끝내는 것을 권장한다.</p>
+          </div>
+
+          <div class="deck-grid">
+            <article><span>01</span><h3>Title and team</h3><p>Topic, team name, agencies, one-line promise.</p></article>
+            <article><span>02</span><h3>Executive summary</h3><p>Problem, chosen option, implementation, expected result.</p></article>
+            <article><span>03</span><h3>Background and rationale</h3><p>Why this issue matters now for Vietnam public service.</p></article>
+            <article><span>04</span><h3>Problem statement</h3><p>Specific negative condition, target group, baseline evidence.</p></article>
+            <article><span>05</span><h3>Root cause analysis</h3><p>5 Whys or problem tree with diagnostic hypotheses.</p></article>
+            <article><span>06</span><h3>Evidence and current status</h3><p>Statistics, policy context, field observations, service gap.</p></article>
+            <article><span>07</span><h3>PESTLE and SWOT</h3><p>Only drivers that affect choice or implementation.</p></article>
+            <article><span>08</span><h3>Stakeholder map</h3><p>Power-interest map and engagement strategy.</p></article>
+            <article><span>09</span><h3>Korea lesson adaptation</h3><p>What to adopt, adapt, or avoid in Vietnam.</p></article>
+            <article><span>10</span><h3>Policy options</h3><p>At least three realistic options compared by criteria.</p></article>
+            <article><span>11</span><h3>Selected action plan</h3><p>Preferred option, task list, To-Be state, strategic relevance.</p></article>
+            <article><span>12</span><h3>Implementation roadmap</h3><p>Phases, owners, partners, resources, timeline.</p></article>
+            <article><span>13</span><h3>Budget and governance</h3><p>Staff, technology, data, financing, inter-agency coordination.</p></article>
+            <article><span>14</span><h3>Risks, KPIs, evaluation</h3><p>Mitigation, monitoring, process evaluation, post-evaluation.</p></article>
+            <article><span>15</span><h3>Expected results and decision request</h3><p>Outputs, outcomes, public value, next decision needed.</p></article>
+          </div>
+        </section>
+
+        <section id="tools" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Analytical Tools</p>
+            <h2>팀별 필수 매트릭스</h2>
+            <p>모든 도구를 길게 채우는 것이 목표가 아니다. 발표의 논리적 약점을 찾아내는 데 필요한 만큼만 채운다.</p>
+          </div>
+
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist" aria-label="Analytical tools">
+              <button type="button" role="tab" aria-selected="true" data-tab="problem">Problem</button>
+              <button type="button" role="tab" aria-selected="false" data-tab="options">Options</button>
+              <button type="button" role="tab" aria-selected="false" data-tab="implementation">Implementation</button>
+              <button type="button" role="tab" aria-selected="false" data-tab="evaluation">Evaluation</button>
+            </div>
+
+            <div class="tab-panel is-active" role="tabpanel" data-panel="problem">
+              <div class="tool-grid">
+                <article>
+                  <h3>Problem statement formula</h3>
+                  <p>Target group + negative condition + location/service context + measurable seriousness + consequence.</p>
+                </article>
+                <article>
+                  <h3>5 Whys</h3>
+                  <p>Use it to reveal causal hypotheses, not to prove a single cause too early.</p>
+                </article>
+                <article>
+                  <h3>PESTLE</h3>
+                  <p>Political, economic, social, technological, legal, environmental drivers with policy implication.</p>
+                </article>
+                <article>
+                  <h3>Stakeholder map</h3>
+                  <p>Manage closely, keep satisfied, keep informed, monitor. Add a concrete engagement action.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="tab-panel" role="tabpanel" data-panel="options">
+              <div class="table-wrap compact">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Criteria</th>
+                      <th>Weight</th>
+                      <th>Option A</th>
+                      <th>Option B</th>
+                      <th>Option C</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Effectiveness</td><td>30%</td><td></td><td></td><td></td></tr>
+                    <tr><td>Efficiency</td><td>15%</td><td></td><td></td><td></td></tr>
+                    <tr><td>Equity</td><td>15%</td><td></td><td></td><td></td></tr>
+                    <tr><td>Administrative feasibility</td><td>20%</td><td></td><td></td><td></td></tr>
+                    <tr><td>Political/legal feasibility</td><td>10%</td><td></td><td></td><td></td></tr>
+                    <tr><td>Sustainability</td><td>10%</td><td></td><td></td><td></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" role="tabpanel" data-panel="implementation">
+              <div class="table-wrap compact">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Task</th>
+                      <th>As-Is</th>
+                      <th>To-Be</th>
+                      <th>Action Steps</th>
+                      <th>Owner / Partners</th>
+                      <th>Resource Need</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Task 1</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Task 2</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Task 3</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Task 4</td><td></td><td></td><td></td><td></td><td></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-panel" role="tabpanel" data-panel="evaluation">
+              <div class="table-wrap compact">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Logic Level</th>
+                      <th>Definition</th>
+                      <th>Indicator</th>
+                      <th>Verification Source</th>
+                      <th>Assumption / Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Inputs</td><td>Budget, staff, technology, data</td><td></td><td></td><td></td></tr>
+                    <tr><td>Activities</td><td>Work performed by agencies and partners</td><td></td><td></td><td></td></tr>
+                    <tr><td>Outputs</td><td>Deliverables produced by the project</td><td></td><td></td><td></td></tr>
+                    <tr><td>Outcomes</td><td>Observable change for target group</td><td></td><td></td><td></td></tr>
+                    <tr><td>Impact</td><td>Longer-term public value contribution</td><td></td><td></td><td></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="review" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Embedded Review Protocol</p>
+            <h2>팀 작업 중간검토 질문 세트</h2>
+            <p>제공된 멘토링 자료의 핵심 질문을 별도 세션이 아니라 모든 액션플랜 단계의 품질 점검 기준으로 반영한다.</p>
+          </div>
+
+          <div class="question-grid">
+            <article>
+              <h3>Problem clinic</h3>
+              <ul>
+                <li>Whose problem is this, exactly?</li>
+                <li>What is the baseline, and what happens if nothing is done?</li>
+                <li>Did the team define a solution as the problem?</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Evidence clinic</h3>
+              <ul>
+                <li>Which evidence is credible, timely, and decision-relevant?</li>
+                <li>What assumption is still untested?</li>
+                <li>Which best practice is comparable enough to use?</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Option clinic</h3>
+              <ul>
+                <li>Are the options genuinely different?</li>
+                <li>Are criteria judging outcomes, not describing activities?</li>
+                <li>What trade-off is the team willing to accept?</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Implementation clinic</h3>
+              <ul>
+                <li>Who implements this and with what capacity?</li>
+                <li>Which frontline process changes first?</li>
+                <li>What will trigger adaptation, scale-down, or redesign?</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="rubric" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Assessment</p>
+            <h2>표준 평가 루브릭</h2>
+            <p>ADB 가이드의 평가 체계를 베트남 팀 발표에 맞게 구체화했다.</p>
+          </div>
+
+          <div class="rubric-list">
+            <article>
+              <div class="score">20%</div>
+              <h3>Organization</h3>
+              <p>Problem, evidence, options, action plan, and results are logically connected.</p>
+            </article>
+            <article>
+              <div class="score">20%</div>
+              <h3>Analysis</h3>
+              <p>Frameworks such as 5 Whys, PESTLE, SWOT, stakeholder analysis, and option scoring are used to produce decisions.</p>
+            </article>
+            <article>
+              <div class="score">20%</div>
+              <h3>Feasibility and sustainability</h3>
+              <p>The plan is realistic in budget, staffing, legal basis, political support, institutional capacity, and long-term maintenance.</p>
+            </article>
+            <article>
+              <div class="score">25%</div>
+              <h3>Potential to address the problem</h3>
+              <p>The selected intervention can plausibly improve the target group's situation and includes measurable expected outcomes.</p>
+            </article>
+            <article>
+              <div class="score">15%</div>
+              <h3>Presentation</h3>
+              <p>The team presents clear messages, concise visuals, balanced speaking roles, and credible answers to questions.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="source-map" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Source Reflection Map</p>
+            <h2>참고자료 반영 범위</h2>
+            <p>
+              원자료를 그대로 옮기는 대신, 반복적으로 등장한 액션플랜 논리와 발표 산출물 구조를 베트남 팀 전용 운영 자료로 재구성했다.
+              아래 표는 어떤 자료가 웹페이지의 어느 부분에 반영되었는지 보여준다.
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Source Material</th>
+                  <th>What Was Reflected</th>
+                  <th>Where It Appears</th>
+                  <th>Reflection Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ADB Action Plan Guideline</td>
+                  <td>Problem and rationale, SMART objectives, stakeholder needs, action plan feasibility, Korea lesson-drawing, assessment weights.</td>
+                  <td>Schedule, deck standard, team canvas, rubric</td>
+                  <td>Core structure and scoring logic</td>
+                </tr>
+                <tr>
+                  <td>Individual Policy Report Guideline</td>
+                  <td>Evidence-based analysis, policy options, comparative assessment, implementation strategy, monitoring and evaluation.</td>
+                  <td>Team canvas, tools, deck standard, review questions</td>
+                  <td>Converted from individual report to team presentation workflow</td>
+                </tr>
+                <tr>
+                  <td>Useful Policy Report</td>
+                  <td>Audience awareness, concise actionable summaries, credible evidence, practical recommendations, policy relevance.</td>
+                  <td>Core logic, review questions, final message, quality gates</td>
+                  <td>Embedded as communication and decision-use principles</td>
+                </tr>
+                <tr>
+                  <td>Effective Problem Solving / Eightfold Path</td>
+                  <td>Problem definition, evidence assembly, alternatives, criteria, outcome projection, trade-offs, decision, storytelling.</td>
+                  <td>Process, analytical tools, policy option matrix, presentation storyline</td>
+                  <td>Used as the main analytical backbone</td>
+                </tr>
+                <tr>
+                  <td>Implementation and Performance Management</td>
+                  <td>Logic model, implementation capacity, frontline constraints, phased rollout, KPIs, process and post-evaluation, adaptive learning.</td>
+                  <td>Implementation plan, evaluation matrix, risks, review questions</td>
+                  <td>Used to make the action plan operational</td>
+                </tr>
+                <tr>
+                  <td>PFS Operational Guidelines</td>
+                  <td>Economic feasibility, policy relevance, balanced public value, financial risk, transparent assumptions, sensitivity checks.</td>
+                  <td>Option criteria, rubric, feasibility checks</td>
+                  <td>Reflected as feasibility discipline, not as a full PFS model</td>
+                </tr>
+                <tr>
+                  <td>Malaysia Group Templates and Final Decks</td>
+                  <td>Background and purpose, 5 Whys, PESTLE, SWOT, stakeholder map, task prioritization, budget, timeline, risks, outputs and outcomes.</td>
+                  <td>Deck standard, tools, schedule milestones, final package checklist</td>
+                  <td>Repeated slide patterns generalized into a standard deck</td>
+                </tr>
+                <tr>
+                  <td>2026 Vietnam Program Schedule</td>
+                  <td>20-31 July flow: orientation, brainstorming, strategic adaptation, mid-term evaluation, site visit learning, final review, group presentation.</td>
+                  <td>Program schedule and team milestone table</td>
+                  <td>Latest `0622 ver.` sheet reflected directly</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="source-caveat">
+            <h3>What this page does not try to do</h3>
+            <p>
+              It does not reproduce every slide or every example verbatim. The goal is a reusable standard process that any facilitator can run.
+              If the professor wants a deck that visually follows one specific Malaysia PPT template, that would be a separate presentation-design task.
+            </p>
+          </div>
+        </section>
+
+        <section id="handoff" class="section-band">
+          <div class="section-heading">
+            <p class="eyebrow">Facilitator Handoff</p>
+            <h2>누가 진행해도 같은 품질을 내기 위한 운영 체크리스트</h2>
+            <p>진행자는 내용 전문가가 아니어도 된다. 다만 매 세션마다 산출물과 품질 기준을 확인해야 한다.</p>
+          </div>
+
+          <div class="handoff-grid">
+            <article class="handoff-card">
+              <h3>Before program</h3>
+              <label><input type="checkbox" /> Send one-page issue note template to participants.</label>
+              <label><input type="checkbox" /> Prepare team folders and deck template.</label>
+              <label><input type="checkbox" /> Assign reviewers or facilitators to policy domains or implementation themes.</label>
+              <label><input type="checkbox" /> Confirm the latest Vietnam schedule sheet version before printing.</label>
+            </article>
+            <article class="handoff-card">
+              <h3>During program</h3>
+              <label><input type="checkbox" /> End each clinic with one required output.</label>
+              <label><input type="checkbox" /> Keep a decision log for topic, criteria, selected option, and rejected options.</label>
+              <label><input type="checkbox" /> Ask every team to show evidence before designing solution details.</label>
+              <label><input type="checkbox" /> Run a rehearsal focused on Q&A, not only slide design.</label>
+            </article>
+            <article class="handoff-card">
+              <h3>Final package</h3>
+              <label><input type="checkbox" /> Final team deck.</label>
+              <label><input type="checkbox" /> One-page executive summary.</label>
+              <label><input type="checkbox" /> Completed action plan canvas.</label>
+              <label><input type="checkbox" /> Review feedback and rubric score.</label>
+            </article>
+          </div>
+
+          <details class="source-note">
+            <summary>Source materials reflected</summary>
+            <p>
+              This standard kit synthesizes the provided Malaysia action plan samples and mentoring reference materials:
+              useful policy report, effective problem solving, policy implementation and performance management,
+              PFS guideline, ADB action plan guideline, individual policy report guideline, and Malaysia group presentation samples.
+            </p>
+          </details>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script>
+const toast = document.querySelector(".toast");
+const main = document.querySelector("main");
+
+const storageKeys = {
+  content: "vietnam-action-plan-main-html-v2",
+  checks: "vietnam-action-plan-checks-v2",
+  editMode: "vietnam-action-plan-edit-mode-v2",
+};
+
+const editableSelector = [
+  "main h2",
+  "main h3",
+  "main p:not(.eyebrow)",
+  "main li",
+  "main td",
+  "main th",
+  "main figcaption",
+  "main code",
+  "main .stage-index",
+  "main .score",
+  "main .deck-grid span",
+  "main .source-note summary",
+].join(",");
+
+let saveTimer;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  window.clearTimeout(showToast.timer);
+  showToast.timer = window.setTimeout(() => {
+    toast.classList.remove("is-visible");
+  }, 2400);
+}
+
+function saveContent() {
+  localStorage.setItem(storageKeys.content, main.innerHTML);
+}
+
+function scheduleSave() {
+  window.clearTimeout(saveTimer);
+  saveTimer = window.setTimeout(() => {
+    saveContent();
+    saveChecks();
+  }, 350);
+}
+
+function restoreContent() {
+  const saved = localStorage.getItem(storageKeys.content);
+  if (saved) {
+    main.innerHTML = saved;
+  }
+}
+
+function setEditMode(enabled) {
+  document.body.classList.toggle("edit-mode", enabled);
+  document.querySelector("[data-edit-toggle]")?.classList.toggle("is-active", enabled);
+  document.querySelector("[data-edit-toggle]")?.setAttribute("aria-pressed", String(enabled));
+  localStorage.setItem(storageKeys.editMode, String(enabled));
+
+  document.querySelectorAll(editableSelector).forEach((element) => {
+    element.contentEditable = String(enabled);
+    element.dataset.liveEdit = String(enabled);
+    if (enabled) {
+      element.setAttribute("spellcheck", "true");
+    } else {
+      element.removeAttribute("spellcheck");
+    }
+  });
+}
+
+function getChecks() {
+  return Array.from(document.querySelectorAll("input[type='checkbox']")).map((box) => box.checked);
+}
+
+function saveChecks() {
+  localStorage.setItem(storageKeys.checks, JSON.stringify(getChecks()));
+}
+
+function restoreChecks() {
+  try {
+    const checked = JSON.parse(localStorage.getItem(storageKeys.checks) || "[]");
+    document.querySelectorAll("input[type='checkbox']").forEach((box, index) => {
+      box.checked = Boolean(checked[index]);
+    });
+  } catch {
+    localStorage.removeItem(storageKeys.checks);
+  }
+}
+
+function downloadText(filename, text, type) {
+  const blob = new Blob([text], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportJson() {
+  saveContent();
+  saveChecks();
+  const payload = {
+    title: document.title,
+    exportedAt: new Date().toISOString(),
+    version: 2,
+    mainHtml: main.innerHTML,
+    checks: getChecks(),
+  };
+  downloadText(
+    "vietnam-action-plan-edits.json",
+    JSON.stringify(payload, null, 2),
+    "application/json;charset=utf-8",
+  );
+  showToast("Editable data exported.");
+}
+
+async function exportHtml() {
+  saveContent();
+  saveChecks();
+
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelector("main").innerHTML = main.innerHTML;
+
+  const cssText = Array.from(document.styleSheets)
+    .map((sheet) => {
+      try {
+        return Array.from(sheet.cssRules).map((rule) => rule.cssText).join("\n");
+      } catch {
+        return "";
+      }
+    })
+    .join("\n");
+
+  const style = document.createElement("style");
+  style.textContent = cssText;
+  clone.querySelectorAll("link[rel='stylesheet']").forEach((link) => link.replaceWith(style.cloneNode(true)));
+
+  const scriptResponse = await fetch("script.js");
+  const scriptText = await scriptResponse.text();
+  const script = document.createElement("script");
+  script.textContent = scriptText;
+  clone.querySelectorAll("script[src]").forEach((scriptNode) => scriptNode.replaceWith(script.cloneNode(true)));
+
+  downloadText(
+    "2026-vietnam-action-plan-standard-editable.html",
+    `<!doctype html>\n${clone.outerHTML}`,
+    "text/html;charset=utf-8",
+  );
+  showToast("Standalone HTML exported.");
+}
+
+async function importJson(file) {
+  const text = await file.text();
+  const payload = JSON.parse(text);
+  if (!payload.mainHtml) {
+    throw new Error("Invalid edit file.");
+  }
+
+  main.innerHTML = payload.mainHtml;
+  localStorage.setItem(storageKeys.content, payload.mainHtml);
+  if (Array.isArray(payload.checks)) {
+    localStorage.setItem(storageKeys.checks, JSON.stringify(payload.checks));
+  }
+
+  bindDynamicControls();
+  restoreChecks();
+  setEditMode(localStorage.getItem(storageKeys.editMode) === "true");
+  showToast("Editable data imported.");
+}
+
+function bindTopbarControls() {
+  document.querySelector("[data-print]")?.addEventListener("click", () => {
+    window.print();
+  });
+
+  document.querySelector("[data-expand]")?.addEventListener("click", () => {
+    document.querySelectorAll("details").forEach((detail) => {
+      detail.open = true;
+    });
+    document.querySelectorAll(".tab-panel").forEach((panel) => {
+      panel.classList.add("is-active");
+    });
+    document.querySelectorAll("[role='tab']").forEach((tab) => {
+      tab.setAttribute("aria-selected", "true");
+    });
+    showToast("All sections expanded for review.");
+  });
+
+  document.querySelector("[data-edit-toggle]")?.addEventListener("click", () => {
+    const enabled = !document.body.classList.contains("edit-mode");
+    setEditMode(enabled);
+    showToast(enabled ? "Edit mode on. Click text or table cells to edit." : "Edit mode off.");
+  });
+
+  document.querySelector("[data-save-edits]")?.addEventListener("click", () => {
+    saveContent();
+    saveChecks();
+    showToast("Saved in this browser.");
+  });
+
+  document.querySelector("[data-export-edits]")?.addEventListener("click", exportJson);
+  document.querySelector("[data-export-html]")?.addEventListener("click", exportHtml);
+
+  document.querySelector("[data-import-edits]")?.addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      await importJson(file);
+    } catch {
+      showToast("Could not import that JSON file.");
+    } finally {
+      event.target.value = "";
+    }
+  });
+
+  document.querySelector("[data-reset-edits]")?.addEventListener("click", () => {
+    const shouldReset = window.confirm("Reset edited content saved in this browser?");
+    if (!shouldReset) return;
+    localStorage.removeItem(storageKeys.content);
+    localStorage.removeItem(storageKeys.checks);
+    localStorage.removeItem(storageKeys.editMode);
+    window.location.reload();
+  });
+}
+
+function bindDynamicControls() {
+  document.querySelectorAll("[data-copy]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const target = document.querySelector(button.dataset.copy);
+      if (!target) return;
+
+      const text = target.innerText.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("Canvas copied.");
+      } catch {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(target);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        showToast("Canvas selected. Press Ctrl+C to copy.");
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-tabs]").forEach((tabs) => {
+    const tabButtons = Array.from(tabs.querySelectorAll("[role='tab']"));
+    const panels = Array.from(tabs.querySelectorAll("[role='tabpanel']"));
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.tab;
+        tabButtons.forEach((tab) => {
+          tab.setAttribute("aria-selected", String(tab === button));
+        });
+        panels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.dataset.panel === selected);
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("input[type='checkbox']").forEach((box) => {
+    box.addEventListener("change", saveChecks);
+  });
+
+  document.querySelectorAll(editableSelector).forEach((element) => {
+    element.addEventListener("input", scheduleSave);
+  });
+}
+
+restoreContent();
+bindTopbarControls();
+bindDynamicControls();
+restoreChecks();
+setEditMode(localStorage.getItem(storageKeys.editMode) === "true");
+
+    </script>
+  </body>
+</html>
